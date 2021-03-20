@@ -1,0 +1,54 @@
+
+
+int led1 = D0; // Instead of writing D0 over and over again, we'll write led1
+
+
+int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
+
+
+void setup() {
+
+  // We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
+  // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
+
+  
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+
+}
+void flashing(int duration)// Instead of writing on and off command for each letter separately i am creating a function which 
+                        // will automaically do that job and make ourcode reusable and easy.
+{
+    digitalWrite(led1,HIGH);
+    digitalWrite(led2,HIGH);
+    delay(duration);
+    
+    digitalWrite(led1,LOW);
+    digitalWrite(led2,LOW);
+    delay(duration);
+    
+}
+//In this we will call the flashing function to flash the dots and dash to fulffil/Show letters in morse code
+void loop() {
+  delay(2500);
+
+  flashing(300);flashing(300);flashing(300);//S stands for dot;dot;dot;
+  delay(1600);
+  
+  flashing(300);flashing(300);flashing(300);flashing(300);//H stands for dot;dot;dot;dot;
+  delay(1600);
+  
+  flashing(300);flashing(900);//A stands for dot;dash;
+  delay(1600);
+  
+  flashing(300);flashing(900);flashing(300);//R stands for dot;dash;dot;
+  delay(1600);
+  
+  flashing(900);flashing(900);//M stands for dash;dash;
+  delay(1600);
+  
+  flashing(300);flashing(900);//A stands for dot;dash;
+  delay(1600);
+  
+}
+
